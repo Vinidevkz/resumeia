@@ -1,4 +1,4 @@
-package com.project.authProject;
+package com.project.resumeia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

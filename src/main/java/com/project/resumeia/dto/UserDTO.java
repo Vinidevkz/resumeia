@@ -1,6 +1,5 @@
-package com.project.authProject.dto;
+package com.project.resumeia.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 public record UserDTO(

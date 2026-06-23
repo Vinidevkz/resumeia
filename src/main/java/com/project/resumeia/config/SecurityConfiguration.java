@@ -1,6 +1,5 @@
-package com.project.authProject.config;
+package com.project.resumeia.config;
 
-import com.project.authProject.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

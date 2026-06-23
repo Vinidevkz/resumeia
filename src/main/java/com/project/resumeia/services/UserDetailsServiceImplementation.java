@@ -1,6 +1,6 @@
-package com.project.authProject.services;
+package com.project.resumeia.services;
 
-import com.project.authProject.repositories.UserRepository;
+import com.project.resumeia.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

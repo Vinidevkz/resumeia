@@ -1,4 +1,4 @@
-package com.project.authProject.enums;
+package com.project.resumeia.enums;
 
 public enum RoleTypes {
     ROLE_ALUNO,

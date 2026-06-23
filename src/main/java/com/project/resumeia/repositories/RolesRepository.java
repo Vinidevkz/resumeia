@@ -1,6 +1,6 @@
-package com.project.authProject.repositories;
+package com.project.resumeia.repositories;
 
-import com.project.authProject.entities.RolesEntity;
+import com.project.resumeia.entities.RolesEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

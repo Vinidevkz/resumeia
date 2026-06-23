@@ -1,4 +1,4 @@
-package com.project.authProject.config;
+package com.project.resumeia.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

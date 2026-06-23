@@ -1,4 +1,4 @@
-package com.project.authProject.entities;
+package com.project.resumeia.entities;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;

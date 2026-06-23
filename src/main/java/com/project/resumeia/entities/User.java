@@ -1,4 +1,4 @@
-package com.project.authProject.entities;
+package com.project.resumeia.entities;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -29,6 +29,7 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private Integer age;
+    private Integer tokensPerDay = 0;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
