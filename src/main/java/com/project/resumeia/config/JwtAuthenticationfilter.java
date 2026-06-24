@@ -28,6 +28,12 @@ public class JwtAuthenticationfilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
                                     throws ServletException, IOException
     {
+
+        if (request.getRequestURI().startsWith("/h2-console")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
           String authorizationHeader = request.getHeader("Authorization");
 
           if(StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith("Bearer ")){

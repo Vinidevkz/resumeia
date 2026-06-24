@@ -36,11 +36,11 @@ public class SecurityConfiguration {
                         }))
                 .authorizeHttpRequests(auth ->
                         //rotas liberadas sem segurança (login, cadastro, etc...):
-                            auth.requestMatchers("/v1/auth/**", "/h2-console").permitAll()
+                            auth.requestMatchers("/v1/auth/**", "/h2-console/**").permitAll()
                                     //qualquer outra rota necessitará de autenticação:
                                     .anyRequest().authenticated()
                         )
-
+                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .addFilterBefore(jwtAuthenticationfilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

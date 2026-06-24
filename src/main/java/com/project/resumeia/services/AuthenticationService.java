@@ -44,9 +44,9 @@ public class AuthenticationService {
             throw new BadRequestException("O usuário já existe no sistema.");
         }
 
-        RolesEntity role = rolesRepository.findByNome(RoleTypes.ROLE_ALUNO.name()).orElseGet(()
+        RolesEntity role = rolesRepository.findByNome(RoleTypes.ROLE_USUARIO.name()).orElseGet(()
                 -> rolesRepository.save(RolesEntity.builder()
-                .nome(RoleTypes.ROLE_ALUNO.name())
+                .nome(RoleTypes.ROLE_USUARIO.name())
                 .build()
         ));
         //conversao json -> dto
