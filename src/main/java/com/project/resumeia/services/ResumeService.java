@@ -62,7 +62,29 @@ public class ResumeService {
         Map<String, Object> textPart = Map.of("text", prompt);
         Map<String, Object> imagePart = Map.of("inlineData", inlineData);
         Map<String, Object> parts = Map.of("parts", List.of(textPart, imagePart));
-        Map<String, Object> body = Map.of("contents", List.of(parts));
+        List<Object> contents = List.of(parts);
+
+        //schema
+        Map<String, Object> responseSchema = Map.of(
+                "type", "OBJECT",
+                "properties", Map.of(
+                        "nota", Map.of("type", "INTEGER", "description", "Nota de 0 a 100 para o currículo"),
+                        "pontosFortes", Map.of("type", "ARRAY", "items", Map.of("type", "STRING"), "description", "Lista com pontos fortes do currículo"),
+                        "pontosFracos", Map.of("type", "ARRAY", "items", Map.of("type", "STRING"), "description", "Lista com pontos de atenção ou melhoria"),
+                        "avaliacaoGeral", Map.of("type", "STRING", "description", "Texto descritivo com a avaliação do recrutador")
+                ),
+                "required", List.of("nota", "pontosFortes", "pontosFracos", "avaliacaoGeral")
+        );
+
+        Map<String, Object> generationConfig = Map.of(
+                "responseMimeType", "application/json", // Obriga o Gemini a responder JSON
+                "responseSchema", responseSchema
+        );
+
+        Map<String, Object> body = Map.of(
+                "contents", contents,
+                "generationConfig", generationConfig
+        );
 
         try{
             String response = restClient.post()
