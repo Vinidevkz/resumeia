@@ -51,16 +51,16 @@ public class AuthenticationService {
         ));
         //conversao json -> dto
         User newUser = new User();
-        newUser.setName(user.nome());
+        newUser.setName(user.name());
         newUser.setEmail(user.email());
         newUser.setRoles(Set.of(role));
         //criptografando a senha:
-        newUser.setPassword(passwordEncoder.encode(user.senha()));
+        newUser.setPassword(passwordEncoder.encode(user.password()));
+        newUser.setAge(user.age());
 
         User savedUser = userRepository.save(newUser);
 
         return ResponseEntity.ok().body(savedUser);
-
 
     }
 
