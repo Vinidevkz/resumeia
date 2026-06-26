@@ -17,10 +17,12 @@ public class UserController {
 
     private final AuthenticationService authenticationService;
 
+    /*
     @GetMapping("/test")
     public String testApi(){
         return "API funcionando!";
     }
+    */
 
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@Validated @RequestBody UserDTO requestBodyDto) throws Exception{

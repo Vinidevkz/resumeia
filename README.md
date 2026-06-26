@@ -1,18 +1,20 @@
+![Resume IA](https://raw.githubusercontent.com/Vinidevkz/resumeia/main/src/src/resumeia.png)
 
-# Resume IA
+<h4 align="center">Obtenha feedbacks precisos sobre curriculos.</h3>
 
- Obtenha feedbacks precisos sobre curriculos.
+**📎 Site: em desenvolvimento**
 
 
 ## 🚀 Sobre o projeto
- O Resume IA é uma plataforma de avaliações de curricuos com inteligência artificial. Os usuários podem fazer upload de seus curriculos e receber um feedback sobre o mesmo, envolvendo análise da formatação e sobre as informações contidas no mesmo. 
+O Resume IA é uma plataforma de avaliações de curricuos com
+inteligência artificial. Os usuários podem fazer
+upload de seus curriculos e receber um feedback sobre o mesmo,
+envolvendo análise da formatação e sobre as informações contidas no mesmo.
 
 
 ## ⚙️ Tecnologias utilizadas
 
-**Cliente:** React.
-
-**Servidor:** Java, Spring Framework e PostgreSQL.
+**Servidor:** Java, Spring Framework, PostgreSQL, Google Gemini ⭐.
 
 ## 📝 API Reference
 
@@ -27,7 +29,7 @@
 | :-------- | 
 | `Dados do usuário`      | 
 
-#### 🔓 Login de usuário 
+#### 🔓 Login de usuário
 
 ```http
   POST /v1/auth/users/login
@@ -37,7 +39,7 @@
 | :-------- | 
 | `Token JWT`      |
 
-#### 🔄 Alteração de dados do usuário 
+#### 🔄 Alteração de dados do usuário
 
 ```http
   POST /v1/auth/users/update
@@ -47,7 +49,7 @@
 | `json com os dados do usuario`      | `user` |
 | `id do usuário`      | `long` |
 
-#### ❌ Deletar usuário 
+#### ❌ Deletar usuário
 
 ```http
   POST /v1/auth/users/delete
