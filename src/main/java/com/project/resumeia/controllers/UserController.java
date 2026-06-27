@@ -6,6 +6,7 @@ import com.project.resumeia.dto.UserDTO;
 import com.project.resumeia.entities.User;
 import com.project.resumeia.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class UserController {
     */
 
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@Validated @RequestBody UserDTO requestBodyDto) throws Exception{
+    public ResponseEntity<HttpStatus> registerUser(@Validated @RequestBody UserDTO requestBodyDto) throws Exception{
         return authenticationService.registerUser(requestBodyDto);
     }
 

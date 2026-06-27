@@ -1,5 +1,6 @@
 package com.project.resumeia.config;
 
+import com.project.resumeia.entities.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -21,20 +22,23 @@ public class TokenProvider {
     private String key;
 
     //gerar token
-
     public String generateToken(Authentication authentication){
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        User user = (User) authentication.getPrincipal();
 
-        return buildToken(userDetails.getUsername());
+
+
+        return buildToken(user.getId(), user.getEmail());
     }
 
-    private String buildToken(String username){
+    private String buildToken(Long userId, String username){
+
         Date now = new Date();
         Date expiration = new Date(now.getTime() + expirationTime);
 
         //inserindo informações no token:
         return Jwts.builder()
                 .subject(username)
+                .claim("userId", userId)
                 .issuedAt(now)
                 .expiration(expiration)
                 .signWith(getSigningKey())
@@ -66,10 +70,16 @@ public class TokenProvider {
                 .getPayload();
     }
 
-    //extrair infos do token
-
+    //extrair email do token
     public String getUsername(String token){
         return getClaims(token).getSubject();
     }
+
+    //extrair id do token
+    public Long getUserId(String token){
+        Claims claims = getClaims(token);
+
+        return claims.get("userId", Long.class);
+    };
 
 }

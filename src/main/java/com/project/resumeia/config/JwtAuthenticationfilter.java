@@ -39,12 +39,18 @@ public class JwtAuthenticationfilter extends OncePerRequestFilter {
           if(StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith("Bearer ")){
               //validar token
 
+              //!!
               String token = authorizationHeader.substring(7);
 
               if(tokenProvider.isTokenValid(token)){
                   String username = tokenProvider.getUsername(token);
+                  Long userId = tokenProvider.getUserId(token);
+
                   UserDetails userDetails = userDetailsService.loadUserByUsername(username);
                   UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+                  //id injection
+                  authenticationToken.setDetails(userId);
 
                   SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
